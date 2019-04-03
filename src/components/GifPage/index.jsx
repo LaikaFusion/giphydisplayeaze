@@ -1,6 +1,6 @@
 import React from "react";
 import "./GifPage.css";
-const index = ({ items }) => {
+const index = ({ items, imageClick }) => {
   return (
     <div className="gifpage">
       {items.map((e, i) => {
@@ -12,7 +12,25 @@ const index = ({ items }) => {
         ) {
           imgSrc = e.images.fixed_height_downsampled.url;
         }
-        return <img alt={e.slug} key={e.slug} src={imgSrc} />;
+        return (
+          <img
+            onClick={() => {
+              imageClick({
+                display: true,
+                information: {
+                  directLink: e.url,
+                  userName: e.username,
+                  title: e.title,
+                  embed: e.embed_url,
+                  imgUrl: e.images.original.url
+                }
+              });
+            }}
+            alt={e.slug}
+            key={e.slug}
+            src={imgSrc}
+          />
+        );
       })}
     </div>
   );
