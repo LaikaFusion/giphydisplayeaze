@@ -17,9 +17,9 @@ const index = ({ items, imageClick }) => {
             onClick={() => {
               imageClick({
                 display: true,
-                information: {
+                info: {
                   directLink: e.url,
-                  userName: e.username,
+                  user: e.user,
                   title: e.title,
                   embed: e.embed_url,
                   imgUrl: e.images.original.url
