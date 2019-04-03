@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <GifPage imageClick={setgifModal} items={data} />
-      {gifModal.display ? <GifModal modalObj={gifModal} /> : "B"}
+      {gifModal.display ? <GifModal setgifModal={setgifModal} modalObj={gifModal} /> : "B"}
     </div>
   );
 };

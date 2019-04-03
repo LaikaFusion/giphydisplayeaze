@@ -12,7 +12,7 @@ const determineName = userObj => {
   return userObj.username;
 };
 
-const index = ({ modalObj }) => {
+const index = ({ modalObj, setgifModal }) => {
   const textAreaRef = useRef(null);
   const [copyText, setCopyText] = useState("");
 
@@ -28,6 +28,9 @@ const index = ({ modalObj }) => {
     }, 2000);
   };
 
+  const stopProp = (e)=>{
+    e.stopPropagation()
+  }
   //this is to intially set the copyText correctly
   useEffect(() => {
     setCopyText(info.embed);
@@ -37,16 +40,18 @@ const index = ({ modalObj }) => {
   let username = determineName(info.user);
 
   return (
-    <div className="GifModalBackground">
-      <div className="gifModalCard">
+    <div className="GifModalBackground" onClick = {()=>{
+      setgifModal({display: false})
+    }}>
+      <div className="gifModalCard" onClick= {stopProp}>
         <a href={info.directLink}>
           <img alt={info.title} key={info.title} src={info.imgUrl} />
         </a>
         <div className="modalTextArea">
-          {info.title.toUpperCase()}
-          <br />
-          {info.user ? `User: ${username}` : ""}
-          <br />
+          <div>{info.title.toUpperCase()}</div>
+          
+          <div>{info.user ? `User: ${username}` : ""}</div>
+         
           <textarea
             className="copyTextArea"
             onClick={copyToClipboard}

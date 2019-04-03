@@ -3,7 +3,7 @@ import "./GifPage.css";
 const index = ({ items, imageClick }) => {
   return (
     <div className="gifpage">
-      {items.map((e, i) => {
+      {items.map((e) => {
         //detects if the images heigh it bigger then it's width to allow more consistent spacing. IF the document is bellow 450px it makes the images take up more room
         let imgSrc = e.images.fixed_width_downsampled.url;
         if (
