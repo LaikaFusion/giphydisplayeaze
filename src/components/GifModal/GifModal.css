@@ -1,9 +1,18 @@
-.GifModal{
+.GifModal {
   position: absolute;
   background: white;
   z-index: 2;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
+}
+.copyTextArea {
+  width: 90%;
+  display: flex;
+  text-align: center;
+  overflow: auto;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  resize: none;
 }
