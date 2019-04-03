@@ -1,0 +1,7 @@
+.gifpage{
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+
+}
