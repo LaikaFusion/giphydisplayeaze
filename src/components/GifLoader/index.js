@@ -1,34 +1,18 @@
-import React from "react";
-import LoadingAnimation from '../LoadingAnimation';
-const index = ({ image, imageClick }) => {
-  //detects if the images heigh it bigger then it's width to allow more consistent spacing. IF the document is bellow 450px it makes the images take up more room
-  let imgSrc = image.images.fixed_width_downsampled.url;
-  if (
-    image.images.fixed_width_downsampled.height > 200 ||
-    document.documentElement.clientWidth < 450
-  ) {
-    imgSrc = image.images.fixed_height_downsampled.url;
-  }
+import React, { useState } from "react";
+import LoadingAnimation from "../LoadingAnimation";
+const index = ({ image, imgSrc, onclickFunc }) => {
+  const [Loaded, setLoaded] = useState(false);
+
+
   return (
-    <div>
-      <LoadingAnimation/>
+    <div className="gifContainer" onClick={onclickFunc}>
+      {Loaded ? null : <LoadingAnimation />}
       <img
-        onClick={() => {
-          imageClick({
-            display: true,
-            info: {
-              directLink: image.url,
-              user: image.user,
-              title: image.title,
-              embed: image.embed_url,
-              imgUrl: image.images.original.url,
-              rating: image.rating
-            }
-          });
-        }}
+        style={Loaded ? {} : { display: "none" }}
         alt={image.slug}
         key={image.slug}
         src={imgSrc}
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );
