@@ -31,7 +31,7 @@ const index = ({ items, imageClick }) => {
               }
             });
           }}
-          image={image}
+          slug={image.slug}
           imgSrc={pickSize(image)}
         />
       ))}

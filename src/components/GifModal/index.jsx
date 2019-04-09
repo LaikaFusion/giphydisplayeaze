@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./GifModal.css";
+import GifLoader from "../GifLoader";
 
 //giphy will no always give a display name if there is no extra formatting over the normal username. Not all gifs have a user object
 const determineName = userObj => {
@@ -45,7 +46,7 @@ const index = ({ modalObj, setgifModal }) => {
     }}>
       <div className="gifModalCard" onClick= {stopProp}>
         <a href={info.directLink}>
-          <img alt={info.title} key={info.title} src={info.imgUrl} />
+          <GifLoader slug={info.title} imgSrc={info.imgUrl} />
         </a>
         <div className="modalTextArea">
           <div>{info.title.toUpperCase()}</div>
