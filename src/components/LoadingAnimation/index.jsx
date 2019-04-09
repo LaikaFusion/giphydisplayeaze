@@ -4,7 +4,7 @@ import './LoadingAnimation.css';
 
 const index = () => {
   return (
-    <div class="lds-ellipsis">
+    <div className="lds-ellipsis">
       <div />
       <div />
       <div />

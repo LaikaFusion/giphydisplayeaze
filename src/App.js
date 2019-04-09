@@ -19,6 +19,7 @@ const App = () => {
     }
   });
   const [data, setData] = useState([]);
+  const [curRating, setcurRating] = useState("G");
 
   useEffect(() => {
     fetchData();
@@ -26,19 +27,19 @@ const App = () => {
 
   const fetchData = async () => {
     const result = await request();
-    setData([...data,...result]);
+    setData([...data, ...result]);
   };
 
   return (
     <div className="App">
-    <TopBar />
+      <TopBar setcurRating={setcurRating} curRating={curRating} />
       <InfiniteScroll
         hasMore={true}
         initialLoad={false}
         loader={
           <div className="loader" key={0}>
             <div>Loading ...</div>
-            <LoadingAnimation/>
+            <LoadingAnimation />
           </div>
         }
         loadMore={fetchData}
