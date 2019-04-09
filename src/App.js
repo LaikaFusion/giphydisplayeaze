@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import "./App.css";
+import request from "./api"
 import GifPage from "./components/GifPage";
 import GifModal from "./components/GifModal";
+
 //this is temporary data  to use for testing to avoid having to use the api repeatedly
 import sampleData from "./testdata";
 
@@ -17,8 +19,16 @@ const App = () => {
       imgUrl: ""
     }
   });
-  const [data, setData] = useState([...sampleData.data]);
+  const [data, setData] = useState([]);
 
+
+  useEffect( ()=>{
+    const fetchData = async ()=>{
+      const result = await request();
+      setData(result)
+    }
+    fetchData();
+  },[])
   return (
     <div className="App">
       <InfiniteScroll

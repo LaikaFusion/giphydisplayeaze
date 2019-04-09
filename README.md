@@ -47,3 +47,6 @@ We comment our code and commit often.
 We love our users and we really care about providing a good user experience and pleasant UI.
 
 We encourage out of the box thinking and we love to be impressed!
+
+
+add REACT_APP_GIPHY_KEY to an .env file in the root directory
