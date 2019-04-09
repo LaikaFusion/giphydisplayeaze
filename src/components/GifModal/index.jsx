@@ -51,7 +51,7 @@ const index = ({ modalObj, setgifModal }) => {
           <div>{info.title.toUpperCase()}</div>
           
           <div>{info.user ? `User: ${username}` : ""}</div>
-         
+         <div>{info.rating ? `Rating: ${info.rating.toUpperCase()}` : ""}</div>
           <textarea
             className="copyTextArea"
             onClick={copyToClipboard}

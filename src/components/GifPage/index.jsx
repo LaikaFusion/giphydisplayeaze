@@ -22,7 +22,8 @@ const index = ({ items, imageClick }) => {
                   user: e.user,
                   title: e.title,
                   embed: e.embed_url,
-                  imgUrl: e.images.original.url
+                  imgUrl: e.images.original.url,
+                  rating: e.rating
                 }
               });
             }}
