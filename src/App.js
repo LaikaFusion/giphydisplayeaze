@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import "./App.css";
-import request from "./api"
+import request from "./api";
 import GifPage from "./components/GifPage";
 import GifModal from "./components/GifModal";
 
@@ -21,14 +21,15 @@ const App = () => {
   });
   const [data, setData] = useState([]);
 
-
-  useEffect( ()=>{
-    const fetchData = async ()=>{
-      const result = await request();
-      setData(result)
-    }
+  useEffect(() => {
     fetchData();
-  },[])
+  }, []);
+
+  const fetchData = async () => {
+    const result = await request();
+    setData([...data,...result]);
+  };
+
   return (
     <div className="App">
       <InfiniteScroll
@@ -39,9 +40,7 @@ const App = () => {
             Loading ...
           </div>
         }
-        loadMore={() => {
-          setData([...data, ...data]);
-        }}
+        loadMore={fetchData}
       >
         <GifPage imageClick={setgifModal} items={data} />
       </InfiniteScroll>
