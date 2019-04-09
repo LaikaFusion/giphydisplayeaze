@@ -4,6 +4,7 @@ import "./App.css";
 import request from "./api";
 import GifPage from "./components/GifPage";
 import GifModal from "./components/GifModal";
+import LoadingAnimation from "./components/LoadingAnimation";
 
 const App = () => {
   const [gifModal, setgifModal] = useState({
@@ -34,7 +35,8 @@ const App = () => {
         initialLoad={false}
         loader={
           <div className="loader" key={0}>
-            Loading ...
+            <div>Loading ...</div>
+            <LoadingAnimation/>
           </div>
         }
         loadMore={fetchData}
