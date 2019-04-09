@@ -5,6 +5,7 @@ import request from "./api";
 import GifPage from "./components/GifPage";
 import GifModal from "./components/GifModal";
 import LoadingAnimation from "./components/LoadingAnimation";
+import TopBar from "./components/TopBar/";
 
 const App = () => {
   const [gifModal, setgifModal] = useState({
@@ -30,6 +31,7 @@ const App = () => {
 
   return (
     <div className="App">
+    <TopBar />
       <InfiniteScroll
         hasMore={true}
         initialLoad={false}

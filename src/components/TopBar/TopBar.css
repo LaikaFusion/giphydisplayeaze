@@ -1,0 +1,38 @@
+.TopBar {
+  background-color: black;
+  position: sticky;
+  top:0;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  color: white;
+  font-family: 'Fascinate Inline', cursive;
+  height: 4rem;
+  padding: 0 1rem;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.siteTitle{
+  font-size: 2.5rem;
+
+}
+.ratingSelector {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkslategrey;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+.ratingSelector :hover {
+  color: darkslategrey;
+  background-color:white;
+}
+.rating{
+  padding: .5rem;
+  margin: 0 .1rem;
+}
+.activeSelector{
+  color: darkslategrey;
+  background-color:white;
+}
