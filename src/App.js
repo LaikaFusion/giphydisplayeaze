@@ -26,13 +26,18 @@ const App = () => {
   }, []);
 
   const fetchData = async () => {
-    const result = await request();
+    const result = await request(curRating);
     setData([...data, ...result]);
   };
+  const changeRating =(newRating)=>{
+    setcurRating(newRating);
+    setData([]);
+    fetchData();
+  }
 
   return (
     <div className="App">
-      <TopBar setcurRating={setcurRating} curRating={curRating} />
+      <TopBar changeRating={changeRating} curRating={curRating} />
       <InfiniteScroll
         hasMore={true}
         initialLoad={false}

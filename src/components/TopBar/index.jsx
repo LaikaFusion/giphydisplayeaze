@@ -2,7 +2,7 @@ import React from "react";
 import "./TopBar.css";
 const ratings = ["Y", "G", "PG", "PG-13", "R"];
 
-const index = ({ curRating = "G", setcurRating }) => {
+const index = ({ curRating = "G", changeRating }) => {
   return (
     <div className="TopBar">
       <div className="siteTitle">Gif Theater</div>
@@ -13,7 +13,7 @@ const index = ({ curRating = "G", setcurRating }) => {
             classes = "rating activeSelector";
           }
           return (
-            <div onClick={()=>{setcurRating(e)}} key={e} className={classes}>
+            <div onClick={()=>{changeRating(e)}} key={e} className={classes}>
               {e}
             </div>
           );
