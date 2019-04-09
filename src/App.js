@@ -5,9 +5,6 @@ import request from "./api";
 import GifPage from "./components/GifPage";
 import GifModal from "./components/GifModal";
 
-//this is temporary data  to use for testing to avoid having to use the api repeatedly
-import sampleData from "./testdata";
-
 const App = () => {
   const [gifModal, setgifModal] = useState({
     display: false,
