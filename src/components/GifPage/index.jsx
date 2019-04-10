@@ -21,7 +21,7 @@ const index = ({ items, imageClick }) => {
   return (
     <div className="gifpage">
       {items.map(image => (
-        <div className="filmOutline">
+        <div key={image.slug} className="filmOutline">
           <GifLoader
             onclickFunc={() => {
               imageClick({

@@ -31,9 +31,9 @@
   max-width: 1300px;
 }
 .gifTitle {
-  margin-top: .5em;
+  margin-top: 0.5em;
   font-size: 24px;
-  font-family: "Bungee", cursive;
+  font-family: 'Bungee', cursive;
 }
 
 .modalRatingArea {
@@ -47,10 +47,9 @@
   align-items: center;
   align-self: flex-end;
   font-family: 'Fascinate Inline', cursive;
-
 }
 .bottomRow {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: space-between;
 }
@@ -60,7 +59,7 @@
   align-items: center;
   background-color: darkslategray;
   width: 7rem;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 18px;
   border-radius: 10px;
   padding: 1px;
