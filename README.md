@@ -50,3 +50,12 @@ We encourage out of the box thinking and we love to be impressed!
 
 
 add REACT_APP_GIPHY_KEY to an .env file in the root directory
+
+
+## Instructions to run
+1. Create an .env file in the root directory with the value `REACT_APP_GIPHY_KEY` with your giphy key. 
+2. Run `yarn install`
+3. Run `yarn start`
+
+
+Limitations note: Due to the way images load and which url is selected for them, a refresh is required when going to the mobile version of this site. 
