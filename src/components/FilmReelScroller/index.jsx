@@ -1,42 +1,41 @@
-import React, { useState, useEffect } from "react";
-import "./FilmReelSpinner.css";
+import React, { useState, useEffect } from 'react';
+import './FilmReelSpinner.css';
+
 const index = () => {
-  const [rotation, setRotation] = useState("0deg");
+  const [rotation, setRotation] = useState('0deg');
   // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
 
-  let last_known_scroll_position = 0;
   let ticking = false;
 
-  function doSomething(scroll_pos) {
-    setRotation(`${scroll_pos / 6}deg`);
-  }
+  // using raw scroll data causes rotation to be distracting, this slows it down
+
+  const rotCalc = scrollPositionInt => {
+    setRotation(`${scrollPositionInt / 6}deg`);
+  };
 
   useEffect(() => {
-    window.addEventListener("scroll", function(e) {
-      last_known_scroll_position = window.scrollY;
-
+    window.addEventListener('scroll', () => {
       if (!ticking) {
-        window.requestAnimationFrame(function() {
-          doSomething(last_known_scroll_position, e);
+        window.requestAnimationFrame(() => {
+          rotCalc(window.scrollY);
           ticking = false;
         });
-
         ticking = true;
       }
     });
   }, []);
+
   return (
     <svg
       style={{ transform: `rotate(${rotation})` }}
       className="filmReel"
       x="0px"
       y="0px"
-      viewBox="0 0 450 461.492"
+      viewBox="0 0 450 461.492" // this needs to be uneven or it will not rotate off kilter
     >
       <g>
-        <g>
-          <path
-            d="M449.922,230.746c0-124.044-100.917-224.961-224.961-224.961S0,106.702,0,230.746s100.917,224.961,224.961,224.961
+        <path
+          d="M449.922,230.746c0-124.044-100.917-224.961-224.961-224.961S0,106.702,0,230.746s100.917,224.961,224.961,224.961
 			S449.922,354.79,449.922,230.746z M54.299,158.13l22.443-38.873c5.411-9.372,17.394-12.583,26.767-7.172l49.011,28.296
 			c5.022,2.9,8.503,7.876,9.503,13.589l5.129,29.288c0.818,4.678-0.1,9.309-2.332,13.177c-2.284,3.956-5.944,7.116-10.534,8.711
 			l-27.573,9.586c-5.376,1.869-11.301,1.308-16.23-1.539l-49.012-28.297C52.099,179.485,48.888,167.502,54.299,158.13z
@@ -56,8 +55,7 @@ const index = () => {
 			l-5.13-29.287c-0.817-4.678,0.099-9.309,2.332-13.178c2.285-3.955,5.944-7.114,10.534-8.711l27.572-9.586
 			c5.377-1.869,11.301-1.308,16.23,1.539l49.011,28.297c9.373,5.41,12.583,17.395,7.173,26.767l-22.444,38.874
 			C367.769,351.607,355.785,354.818,346.412,349.408z"
-          />
-        </g>
+        />
       </g>
     </svg>
   );
