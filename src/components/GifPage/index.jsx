@@ -48,6 +48,6 @@ const index = ({ items, imageClick }) => {
 export default index;
 
 index.propTypes = {
-  items: PropTypes.shape([]).isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
   imageClick: PropTypes.func.isRequired,
 };

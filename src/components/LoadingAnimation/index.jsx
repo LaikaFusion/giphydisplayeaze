@@ -1,5 +1,5 @@
-//https://loading.io/css/ cc licensed 
-import React from "react";
+// https://loading.io/css/ cc licensed
+import React from 'react';
 import './LoadingAnimation.css';
 
 const index = () => {
