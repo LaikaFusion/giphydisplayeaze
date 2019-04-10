@@ -7,7 +7,7 @@ const index = ({ slug, imgSrc, onclickFunc = ()=>{} }) => {
     <div className="gifContainer" onClick={onclickFunc}>
       {Loaded ? null : <LoadingAnimation />}
       <img
-        style={Loaded ? {} : { display: "none" }}
+        style={Loaded ? {width:"100%"} : { display: "none" }}
         alt={slug}
         key={slug}
         src={imgSrc}
