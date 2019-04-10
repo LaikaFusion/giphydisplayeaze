@@ -15,51 +15,59 @@ const determineName = userObj => {
 
 const index = ({ modalObj, setgifModal }) => {
   const textAreaRef = useRef(null);
-  const [copyText, setCopyText] = useState("");
+  const [copyText, setCopyText] = useState("Copy to clipboard");
 
   const copyToClipboard = e => {
-    const curUrl = copyText;
     textAreaRef.current.select();
     document.execCommand("copy");
-    e.target.focus();
     setCopyText("Copied!");
     //to make sure it reverts
     setTimeout(() => {
-      setCopyText(curUrl);
+      setCopyText("Copy to clipboard");
     }, 2000);
   };
 
-  const stopProp = (e)=>{
-    e.stopPropagation()
-  }
+  const stopProp = e => {
+    e.stopPropagation();
+  };
   //this is to intially set the copyText correctly
-  useEffect(() => {
-    setCopyText(info.embed);
-  }, []);
 
   const info = modalObj.info;
   let username = determineName(info.user);
 
   return (
-    <div className="GifModalBackground" onClick = {()=>{
-      setgifModal({display: false})
-    }}>
-      <div className="gifModalCard" onClick= {stopProp}>
+    <div
+      className="GifModalBackground"
+      onClick={() => {
+        setgifModal({ display: false });
+      }}
+    >
+      <div className="gifModalCard" onClick={stopProp}>
         <a href={info.directLink}>
           <GifLoader slug={info.title} imgSrc={info.imgUrl} />
         </a>
         <div className="modalTextArea">
-          <div>{info.title.toUpperCase()}</div>
-          
+          <div className="gifTitle">
+            {info.title ? info.title.toUpperCase().split("GIF")[0] : "Untitled"}
+          </div>
+
           <div>{info.user ? `By ${username}` : ""}</div>
-         <div>{info.rating ? `Rating: ${info.rating.toUpperCase()}` : ""}</div>
-          <textarea
-            className="copyTextArea"
-            onClick={copyToClipboard}
-            readOnly
-            ref={textAreaRef}
-            value={copyText}
-          />
+          <div className="bottomRow">
+            <div className="copyButton" onClick={copyToClipboard}>
+              {copyText}
+            </div>
+
+            <textarea
+              className="copyTextArea"
+              readOnly
+              ref={textAreaRef}
+              value={info.embed}
+              style={{ display: "none" }}
+            />
+            <div className="modalRatingArea">
+              {info.rating ? `${info.rating.toUpperCase()}` : ""}
+            </div>
+          </div>
         </div>
       </div>
     </div>
