@@ -27,10 +27,11 @@ const index = ({ slug, imgSrc, onclickFunc }) => {
 };
 index.defaultProps = {
   slug: 'Missing Slug',
+  onclickFunc: () => {},
 };
 index.propTypes = {
   slug: PropTypes.string,
   imgSrc: PropTypes.string.isRequired,
-  onclickFunc: PropTypes.func.isRequired,
+  onclickFunc: PropTypes.func,
 };
 export default index;

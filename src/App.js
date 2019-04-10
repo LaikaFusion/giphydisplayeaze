@@ -42,7 +42,7 @@ const App = () => {
       <TopBar changeRating={changeRating} curRating={curRating} />
       <InfiniteScroll
       className= "gifPageContainer"
-        hasMore={true}
+        hasMore
         initialLoad={false}
         loader={
           <div className="loader filmOutline" key={0}>

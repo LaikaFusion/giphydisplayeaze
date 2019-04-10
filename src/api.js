@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const key = process.env.REACT_APP_GIPHY_KEY;
 const responseAmount = 25;
 let curOffset = 0;

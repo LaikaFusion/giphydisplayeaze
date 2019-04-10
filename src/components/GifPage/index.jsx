@@ -1,9 +1,13 @@
-import React from "react";
-import "./GifPage.css";
-import GifLoader from "../GifLoader";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-//detects if the images heigh it bigger then it's width to allow more consistent spacing. If the document is bellow 450px it makes the images take up more room
-let pickSize = image => {
+import './GifPage.css';
+
+import GifLoader from '../GifLoader';
+
+// detects if the images height is bigger then it's width to allow more consistent spacing. If the document is bellow 450px it makes the images take up more room. This helps a lot with spacing
+
+const pickSize = image => {
   if (
     image.images.fixed_width_downsampled.height > 200 ||
     document.documentElement.clientWidth < 520
@@ -28,8 +32,8 @@ const index = ({ items, imageClick }) => {
                   title: image.title,
                   embed: image.embed_url,
                   imgUrl: image.images.original.url,
-                  rating: image.rating
-                }
+                  rating: image.rating,
+                },
               });
             }}
             slug={image.slug}
@@ -42,3 +46,8 @@ const index = ({ items, imageClick }) => {
 };
 
 export default index;
+
+index.propTypes = {
+  items: PropTypes.shape([]).isRequired,
+  imageClick: PropTypes.func.isRequired,
+};
