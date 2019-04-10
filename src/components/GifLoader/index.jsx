@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import LoadingAnimation from '../LoadingAnimation';
 
-const index = ({ slug, imgSrc, onclickFunc = () => {} }) => {
+const index = ({ slug, imgSrc, onclickFunc }) => {
   const [Loaded, setLoaded] = useState(false);
 
   return (
