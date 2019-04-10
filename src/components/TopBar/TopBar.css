@@ -36,3 +36,16 @@
   color: darkslategrey;
   background-color:white;
 }
+
+@media(max-width: 500px){
+  .TopBar {
+    flex-direction:column;
+    height: 15%;
+
+  }
+  .ratingSelector {
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+}
