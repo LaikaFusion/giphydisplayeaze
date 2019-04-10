@@ -1,15 +1,37 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import "./FilmReelSpinner.css";
 const index = () => {
+  const [rotation, setRotation] = useState("0deg");
+  // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
+
+  let last_known_scroll_position = 0;
+  let ticking = false;
+
+  function doSomething(scroll_pos) {
+    setRotation(`${scroll_pos / 5}deg`);
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", function(e) {
+      last_known_scroll_position = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          doSomething(last_known_scroll_position, e);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    });
+  }, []);
   return (
     <svg
-      version="1.1"
-      id="Capa_1"
+      style={{ transform: `rotate(${rotation})` }}
+      className="filmReel"
       x="0px"
       y="0px"
-      width="461.492px"
-      height="461.492px"
-      viewBox="0 0 461.492 461.492"
+      viewBox="0 0 450 461.492"
     >
       <g>
         <g>

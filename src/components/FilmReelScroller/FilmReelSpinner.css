@@ -1,0 +1,13 @@
+:root {
+  --rotateAmount: 0deg;
+}
+
+.filmReel{
+  fill:white;
+  height: 80%;
+  width: 80%;
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  z-index:-1;
+}
