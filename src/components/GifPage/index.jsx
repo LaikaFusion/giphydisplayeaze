@@ -17,23 +17,25 @@ const index = ({ items, imageClick }) => {
   return (
     <div className="gifpage">
       {items.map(image => (
-        <GifLoader
-          onclickFunc={() => {
-            imageClick({
-              display: true,
-              info: {
-                directLink: image.url,
-                user: image.user,
-                title: image.title,
-                embed: image.embed_url,
-                imgUrl: image.images.original.url,
-                rating: image.rating
-              }
-            });
-          }}
-          slug={image.slug}
-          imgSrc={pickSize(image)}
-        />
+        <div className="filmOutline">
+          <GifLoader
+            onclickFunc={() => {
+              imageClick({
+                display: true,
+                info: {
+                  directLink: image.url,
+                  user: image.user,
+                  title: image.title,
+                  embed: image.embed_url,
+                  imgUrl: image.images.original.url,
+                  rating: image.rating
+                }
+              });
+            }}
+            slug={image.slug}
+            imgSrc={pickSize(image)}
+          />
+        </div>
       ))}
     </div>
   );

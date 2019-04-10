@@ -8,7 +8,7 @@ const index = () => {
   let ticking = false;
 
   function doSomething(scroll_pos) {
-    setRotation(`${scroll_pos / 5}deg`);
+    setRotation(`${scroll_pos / 6}deg`);
   }
 
   useEffect(() => {

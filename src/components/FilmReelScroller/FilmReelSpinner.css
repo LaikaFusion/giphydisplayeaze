@@ -1,9 +1,8 @@
 :root {
-  --rotateAmount: 0deg;
 }
 
 .filmReel{
-  fill:white;
+  fill:rgb(192, 192, 192);
   height: 80%;
   width: 80%;
   position: fixed;

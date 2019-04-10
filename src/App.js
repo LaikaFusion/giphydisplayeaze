@@ -45,7 +45,7 @@ const App = () => {
         hasMore={true}
         initialLoad={false}
         loader={
-          <div className="loader" key={0}>
+          <div className="loader filmOutline" key={0}>
             <div>Loading ...</div>
             <LoadingAnimation />
           </div>
