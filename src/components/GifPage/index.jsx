@@ -6,7 +6,7 @@ import GifLoader from "../GifLoader";
 let pickSize = image => {
   if (
     image.images.fixed_width_downsampled.height > 200 ||
-    document.documentElement.clientWidth < 450
+    document.documentElement.clientWidth < 520
   ) {
     return image.images.fixed_height_downsampled.url;
   }

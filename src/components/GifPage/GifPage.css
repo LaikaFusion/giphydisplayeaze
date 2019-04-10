@@ -21,7 +21,7 @@
   border-left: 1em darkgrey dashed;
   border-right: 1em darkgrey dashed;
 }
-@media(max-width: 500px){
+@media(max-width: 520px){
   .filmOutline{
     max-width: inherit;
 

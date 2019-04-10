@@ -46,7 +46,6 @@ const App = () => {
         initialLoad={false}
         loader={
           <div className="loader filmOutline" key={0}>
-            <div>Loading ...</div>
             <LoadingAnimation />
           </div>
         }

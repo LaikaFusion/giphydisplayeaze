@@ -37,7 +37,7 @@
   background-color:white;
 }
 
-@media(max-width: 500px){
+@media(max-width: 535px){
   .TopBar {
     flex-direction:column;
     height: 15%;
