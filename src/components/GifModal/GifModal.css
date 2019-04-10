@@ -20,12 +20,13 @@
   resize: none;
   background: rgba(255, 255, 255, 0);
   width: 100%;
+  color: white;
 
 }
 .gifModalCard{
-  background: white;
+  background: black;
   display: flex;
-  text-align: center;
   flex-direction: column;
-  
+  color: white;
+  padding: 10px;
 }

@@ -51,7 +51,7 @@ const index = ({ modalObj, setgifModal }) => {
         <div className="modalTextArea">
           <div>{info.title.toUpperCase()}</div>
           
-          <div>{info.user ? `User: ${username}` : ""}</div>
+          <div>{info.user ? `By ${username}` : ""}</div>
          <div>{info.rating ? `Rating: ${info.rating.toUpperCase()}` : ""}</div>
           <textarea
             className="copyTextArea"
