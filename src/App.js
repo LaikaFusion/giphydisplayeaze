@@ -6,6 +6,7 @@ import GifPage from "./components/GifPage";
 import GifModal from "./components/GifModal";
 import LoadingAnimation from "./components/LoadingAnimation";
 import TopBar from "./components/TopBar/";
+import FilmReelSpinner from "./components/FilmReelScroller"
 
 const App = () => {
   const [gifModal, setgifModal] = useState({
@@ -37,8 +38,10 @@ const App = () => {
 
   return (
     <div className="App">
+    <FilmReelSpinner />
       <TopBar changeRating={changeRating} curRating={curRating} />
       <InfiniteScroll
+      className= "gifPageContainer"
         hasMore={true}
         initialLoad={false}
         loader={
@@ -57,6 +60,7 @@ const App = () => {
       ) : (
         ""
       )}
+      <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </div>
   );
 };
